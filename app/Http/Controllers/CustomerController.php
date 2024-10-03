@@ -45,7 +45,6 @@ class CustomerController extends Controller
         $customer = new Customer();   
         $customer = Customer::find($id);
 
-        /*
         $customer->name = $request->name;
         $customer->email = $request->email;
         $customer->phone = $request->phone;
@@ -53,22 +52,6 @@ class CustomerController extends Controller
         $customer->address2 = $request->address2;
         $customer->city = $request->city;
         $customer->postcode = $request->postcode;
-*/
-
-
-
-        $customer->name = $request->input('name', $customer->name);
-        $customer->email = $request->input('email', $customer->email);
-        $customer->phone = $request->input('phone', $customer->phone);
-        $customer->address1 = $request->input('address1', $customer->address1);
-        $customer->address2 = $request->input('address2', $customer->address2);
-        $customer->city = $request->input('city', $customer->city);
-        $customer->postcode = $request->input('postcode', $customer->postcode);
-
-
-
-
-
 
         $customer->update();
 
@@ -83,17 +66,6 @@ class CustomerController extends Controller
 
         return redirect('/viewCustomers')->with('staus', "Deleted Successfully");
     }
-
-    /*
-    public function edit($id)
-    {
-        $customer = new Customer();
-        $customer = Customer::find($id);
-     //return view('customerDetails/{$id}', compact('customer'));
-     //return view('editCustomer')->with('customers',$customer);
-     return view('editCustomer/{id}', compact('customer'));
-
-    } */
 }
 
 
